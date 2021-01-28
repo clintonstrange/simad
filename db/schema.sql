@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS simad_db;
+CREATE DATABASE simad_db;
