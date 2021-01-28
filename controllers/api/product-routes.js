@@ -47,6 +47,16 @@ router.get("/:id", (req, res) => {
 });
 
 // create new product
+router.post("/", (req, res) => {
+  Product.create(req.body)
+    .then((product) => {
+      res.status(200).json(product);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json(err);
+    });
+});
 
 router.delete("/:id", (req, res) => {
   // delete one product by its `id` value
