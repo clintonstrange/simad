@@ -5,7 +5,6 @@ const flash = require("express-flash");
 const exphbs = require("express-handlebars");
 const passport = require("passport");
 
-
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -22,7 +21,6 @@ const sess = {
   }),
 };
 
-
 app.use(flash());
 app.use(session(sess));
 app.use(passport.initialize());
@@ -34,7 +32,7 @@ app.set("view engine", "handlebars");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 app.use(require("./controllers/"));
 

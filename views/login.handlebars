@@ -1,15 +1,14 @@
 <h1>Login</h1>
-{{#if (messages.error)}}
-{{messages.error}}
-{{/if}}
-<form action="/login" method="POST">
+<form class="login-form">
     <div>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <label for="email-login">Email:</label>
+        <input type="text" id="email-login" />
     </div>
     <div>
-        <label for="password">Password</label>
-        <input type="password" id="passowrd" name="password" required>
+        <label for="password-login">Password:</label>
+        <input type="password" id="password-login" />
     </div>
-    <button type="submit">Login</button>
+    <div>
+        <button type="submit">Login</button>
+    </div>
 </form>
