@@ -15,7 +15,11 @@ router.get("/", (req, res) => {
       const categories = dbCategoryData.map((category) =>
         category.get({ plain: true })
       );
-      res.render("dashboard", { categories, loggedIn: req.session.loggedIn });
+      res.render("dashboard", {
+        categories,
+        loggedIn: req.session.loggedIn,
+        roleDirector: req.session.roleDirector,
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -28,12 +32,14 @@ router.get("/", (req, res) => {
   console.log(req.session);
   res.render("dashboard", {
     loggedIn: req.session.loggedIn,
+    roleDirector: req.session.roleDirector,
   });
 });
 
 router.get("/add-user", (req, res) => {
   res.render("add-user", {
     loggedIn: req.session.loggedIn,
+    roleDirector: req.session.roleDirector,
   });
 });
 

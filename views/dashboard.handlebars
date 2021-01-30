@@ -1,12 +1,7 @@
 <section>
+    {{#if roleDirector}}
     <a href="/dashboard/add-category"> Create a New Category</a>
     <a href="/dashboard/add-product"> Create a New Product</a>
-    {{!-- <div>
-        <ol class="category-list">
-            {{#each categories as |category|}}
-            <li>
-                {{> categories category}}
-            </li>
-        </ol>
-    </div> --}}
+    {{/if}}
+    <p>Categories Here</p>
 </section>

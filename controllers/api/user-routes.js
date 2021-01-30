@@ -69,15 +69,23 @@ router.post("/login", (req, res) => {
       return;
     }
 
-    req.session.save(() => {
-      req.session.user_id = dbUserData.id;
-      req.session.loggedIn = true;
+    if (dbUserData.role === "Director") {
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.loggedIn = true;
+        req.session.roleDirector = true;
 
-      res.json({ user: dbUserData, message: "You are now logged in!" });
-      console.log({ user: dbUserData, message: "You are now logged in!" });
-      console.log(req.session);
-    });
-    console.log(req.session);
+        res.json({ user: dbUserData, message: "You are now logged in!" });
+      });
+    } else {
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.loggedIn = true;
+        req.session.roleDirector = false;
+
+        res.json({ user: dbUserData, message: "You are now logged in!" });
+      });
+    }
   });
 });
 
