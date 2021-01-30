@@ -1,0 +1,10 @@
+<div>
+    <h2>{{product.product_name}}</h2>
+    {{#if roleDirector }}
+    <a href="/dashboard/products/edit/{{product.id}}">Edit This Product</a>
+    {{/if}}
+    <ul>
+        <li>Price: ${{product.price}}</li>
+        <li>Quantity: {{product.stock}}</li>
+    </ul>
+</div>
