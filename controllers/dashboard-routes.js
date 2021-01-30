@@ -1,4 +1,40 @@
 const router = require("express").Router();
-const { User } = require("../models");
+const { User, Category, Product } = require("../models");
+
+router.get("/", (req, res) => {
+  Category.findAll({
+    attributes: ["id", "category_name"],
+    include: [
+      {
+        model: Product,
+        attributes: ["product_name"],
+      },
+    ],
+  })
+    .then((dbCategoryData) => {
+      const categories = dbCategoryData.map((category) =>
+        category.get({ plain: true })
+      );
+      res.render("dashboard", { categories, loggedIn: req.session.loggedIn });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// get dashboard view
+router.get("/", (req, res) => {
+  console.log(req.session);
+  res.render("dashboard", {
+    loggedIn: req.session.loggedIn,
+  });
+});
+
+router.get("/add-user", (req, res) => {
+  res.render("add-user", {
+    loggedIn: req.session.loggedIn,
+  });
+});
 
 module.exports = router;

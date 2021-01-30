@@ -9,21 +9,39 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <header>
-            <h1>
-                <a href="/">Simon Auto</a>
-            </h1>
-            <nav>
-                
-            </nav>
-        </header>
-        <main>
-            {{{ body }}}
-        </main>
-        <footer>
-        </footer>
-    </div>
+    <header>
+        <nav>
+            <div>
+                {{#if loggedIn}}
+                <h1>
+                    <a href="/dashboard">Simon Auto</a>
+                </h1>
+                <div>
+                    <div>
+                        <a href="/dashboard">Dashboard</a>
+                        <a href="/dashboard/add-user">Add User</a>
+                    </div>
+                    <div>
+                        <button id="logout">Log Out</button>
+                    </div>
+                </div>
+                {{else}}
+                <h1>
+                    <a href="/">Simon Auto</a>
+                </h1>
+                {{/if}}
+            </div>
+        </nav>
+    </header>
+    <main>
+        {{{ body }}}
+    </main>
+    <footer>
+    </footer>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
 </body>
+
 
 </html>
