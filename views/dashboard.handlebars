@@ -3,5 +3,18 @@
     <a href="/dashboard/add-category"> Create a New Category</a>
     <a href="/dashboard/add-product"> Create a New Product</a>
     {{/if}}
-    <p>Categories Here</p>
+    <ol>
+        {{#each categories}}
+        <li>
+            <article>
+                <div>
+                    <a>{{category_name}}</a>
+                </div>
+                <div>
+                    <a href="/products/{{id}}">{{products.length}} product(s)</a>
+                </div>
+            </article>
+        </li>
+        {{/each}}
+    </ol>
 </section>

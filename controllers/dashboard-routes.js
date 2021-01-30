@@ -1,13 +1,14 @@
 const router = require("express").Router();
-const { User, Category, Product } = require("../models");
+const { Category, Product } = require("../models");
+const withAuth = require("../utils/auth");
 
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
   Category.findAll({
     attributes: ["id", "category_name"],
     include: [
       {
         model: Product,
-        attributes: ["product_name"],
+        attributes: ["id", "product_name", "price", "stock", "category_id"],
       },
     ],
   })
@@ -17,7 +18,7 @@ router.get("/", (req, res) => {
       );
       res.render("dashboard", {
         categories,
-        loggedIn: req.session.loggedIn,
+        loggedIn: true,
         roleDirector: req.session.roleDirector,
       });
     })
