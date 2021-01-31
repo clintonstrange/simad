@@ -13,35 +13,23 @@ Vehicle.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    car_status: {
+    year: {
+     type: DataTypes.INTEGER,
+     allowNull:false
+    },
+    make:{
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    model_code: {
+      allowNull:false,
+      validate:{
+        isAlphanumeric:true,
+      },
+    },model:{
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    make: { // such as SEDAN,HATCHBACK, TRUCK, 
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-
-    mileage: { // MUST have milage
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-
-    registration_year: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-     date_recieved:{
-       type: DataTypes.DATE,
-       allowNull:false,
-       validate:{
-         isDate:true
-       }
-     }
+      allowNull:false,
+      validate:{
+        isAlphanumeric:true,
+      },
+    }
   },
   {
     sequelize,
