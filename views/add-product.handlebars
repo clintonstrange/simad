@@ -1,0 +1,25 @@
+<form class="new-product-form">
+    <div>
+        <label for="product-name">New Product Name:</label>
+        <input type="text" id="product-name" name="product-name" />
+    </div>
+    <div>
+        <label for="product-price">New Product Price:</label>
+        <input type="text" id="product-price" name="product-price" />
+    </div>
+    <div>
+        <label for="product-stock">New Product Quantity:</label>
+        <input type="text" id="product-stock" name="product-stock" />
+    </div>
+    <div>
+        <label for="product-category">New Product Category:</label>
+        <select id="product-category">
+            {{#each categories}}
+            <option name="product-category" value={{id}}>{{category_name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <button type="submit">Create New Product</button>
+</form>
+
+<script src="/javascript/add-product.js"></script>

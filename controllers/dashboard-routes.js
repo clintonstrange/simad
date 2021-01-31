@@ -136,7 +136,6 @@ router.get("/products/edit/:id", withAuth, (req, res) => {
 
 // get dashboard view
 router.get("/", (req, res) => {
-  console.log(req.session);
   res.render("dashboard", {
     loggedIn: req.session.loggedIn,
     roleDirector: req.session.roleDirector,
@@ -148,6 +147,33 @@ router.get("/add-user", (req, res) => {
     loggedIn: req.session.loggedIn,
     roleDirector: req.session.roleDirector,
   });
+});
+
+router.get("/add-category", (req, res) => {
+  res.render("add-category", {
+    loggedIn: req.session.loggedIn,
+    roleDirector: req.session.roleDirector,
+  });
+});
+
+router.get("/add-product", (req, res) => {
+  Category.findAll({
+    attributes: ["id", "category_name"],
+  })
+    .then((dbCategoryData) => {
+      const categories = dbCategoryData.map((category) =>
+        category.get({ plain: true })
+      );
+      res.render("add-product", {
+        categories,
+        loggedIn: req.session.loggedIn,
+        roleDirector: req.session.roleDirector,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 module.exports = router;
