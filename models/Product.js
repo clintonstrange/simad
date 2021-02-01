@@ -2,9 +2,9 @@ const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection.js");
 
-class Vehicle extends Model {}
+class Product extends Model {}
 
-Vehicle.init(
+Product.init(
   {
     // define columns
     id: {
@@ -13,18 +13,31 @@ Vehicle.init(
       primaryKey: true,
       autoIncrement: true,
     },
-   
-    category: {
+    year: {
+     type: DataTypes.INTEGER,
+     allowNull:false
+    },
+    make:{
       type: DataTypes.STRING,
-      allowNull:falseA
-    }
+      allowNull:false,
+      validate:{
+        isAlphanumeric:true,
+      },
+    },model:{
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        isAlphanumeric:true,
+      },
+    },
+   
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "Vehicle",
+    modelName: "Product",
   }
 );
 
