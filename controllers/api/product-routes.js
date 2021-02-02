@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Product, Category } = require("../../models");
+const { Product, Vehicle } = require("../../models");
 
 // get all products
 router.get("/", (req, res) => {
@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
   Product.findAll({
     include: [
       {
-        model: Category,
+        model: Vehicle,
         attributes: ["category_name"],
       },
     ],
@@ -28,7 +28,7 @@ router.get("/:id", (req, res) => {
     },
     include: [
       {
-        model: Category,
+        model: Vehicle,
         attributes: ["id", "category_name"],
       },
     ],

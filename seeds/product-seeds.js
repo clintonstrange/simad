@@ -2,33 +2,33 @@ const { Product } = require("../models");
 
 const productData = [
   {
-    product_name: "Product #1",
-    price: 101.0,
-    stock: 10,
+    make: "Acura",
+    model: "TL",
+    year: 2002 ,
     category_id: 1,
   },
   {
-    product_name: "Product #2",
-    price: 102.0,
-    stock: 20,
+    make: "Acura",
+    model: "NSX",
+    year: 2001,
     category_id: 2,
   },
   {
-    product_name: "Product #3",
-    price: 103.0,
-    stock: 30,
+    make: "Acura",
+    model: "MDX",
+    year: 2001,
     category_id: 3,
   },
   {
-    product_name: "Product #4",
-    price: 104.0,
-    stock: 40,
+    make: "Acura",
+    model: "RL",
+    year: 2000,
     category_id: 4,
   },
   {
-    product_name: "Product #5",
-    price: 105.0,
-    stock: 50,
+    make: "Acura",
+    model: "SLX",
+    year: 1998,
     category_id: 5,
   },
 ];
