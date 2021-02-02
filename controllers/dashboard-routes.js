@@ -8,7 +8,7 @@ router.get("/", withAuth, (req, res) => {
     include: [
       {
         model: Product,
-        attributes: [ "year", "make", "model", "id"],
+        attributes: [ "year", "make", "model", "category_id"],
       },
     ],
   })
@@ -28,7 +28,7 @@ router.get("/", withAuth, (req, res) => {
     });
 });
 
-router.get("/categories/:id", withAuth, (req, res) => {
+router.get("/vehicle/:id", withAuth, (req, res) => {
   Vehicle.findByPk(req.params.id, {
     attributes: ["id", "category_name"],
     include: [
@@ -56,7 +56,7 @@ router.get("/categories/:id", withAuth, (req, res) => {
     });
 });
 
-router.get("/categories/products/:id", withAuth, (req, res) => {
+router.get("/vehicle/make/:id", withAuth, (req, res) => {
   Product.findByPk(req.params.id, {
     attributes: ["year", "make", "model","category_id"],
     include: [
@@ -84,7 +84,7 @@ router.get("/categories/products/:id", withAuth, (req, res) => {
     });
 });
 
-router.get("/categories/edit/:id", withAuth, (req, res) => {
+router.get("/vehicle/edit/:id", withAuth, (req, res) => {
   Vehicle.findByPk(req.params.id, {
     attributes: ["id", "category_name"],
   })
@@ -106,9 +106,9 @@ router.get("/categories/edit/:id", withAuth, (req, res) => {
     });
 });
 
-router.get("/products/edit/:id", withAuth, (req, res) => {
+router.get("/make/edit/:id", withAuth, (req, res) => {
   Product.findByPk(req.params.id, {
-    attributes: ["id", "product_name", "price", "stock"],
+    attributes: ["category_id", "make", "model", "year"],
     include: [
       {
         model: Vehicle,

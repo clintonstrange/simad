@@ -11,10 +11,10 @@ async function newProductHandler(event) {
   const response = await fetch(`/api/make`, {
     method: "POST",
     body: JSON.stringify({
-      make,
-      model,
-      year,
-      category_id
+      make:make,
+      model:model,
+      year:year,
+      category_id:category_id
       
     }),
     headers: {

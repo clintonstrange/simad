@@ -48,12 +48,8 @@ router.get("/:id", (req, res) => {
 
 // create new product
 router.post("/", (req, res) => {
-  Product.create({
-    make:req.body.make,
-    model:req.body.model,
-    year:req.body.year,
-    category_id:req.body.category_id
-  })
+  const body= req.body;
+  Product.create(body)
     .then((product) => {
       res.status(200).json(product);
     })
@@ -68,9 +64,10 @@ router.put("/:id", (req, res) => {
   // update product data
   Product.update(
     {
-      product_name: req.body.product_name,
-      price: req.body.price,
-      stock: req.body.stock,
+       make: req.body.make,
+      model: req.body.model,
+      year: req.body.year,
+      category_id:req.body.category_id
     },
     {
       where: {

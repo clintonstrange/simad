@@ -4,13 +4,14 @@ const Product = require("./product");
 
 // Products belongsTo Category
 Product.belongsTo(Vehicle, {
-  foreignKey: "id",
+  foreignKey: "category_id",
+  onDelete:"cascade"
 });
 
 // // Categories have many Products
  Vehicle.hasOne(Product, {
-  foreignKey: "id",
-  
+  foreignKey: "category_id",
+  onDelete:"cascade"
  });
 
 module.exports = { User, Vehicle, Product };
