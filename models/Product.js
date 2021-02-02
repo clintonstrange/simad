@@ -20,15 +20,19 @@ Product.init(
     make:{
       type: DataTypes.STRING,
       allowNull:false,
-      validate:{
-        isAlphanumeric:true,
-      },
+      
     },model:{
       type: DataTypes.STRING,
       allowNull:false,
-      validate:{
-        isAlphanumeric:true,
-      },
+      
+     category_id: {
+      type: DataTypes.INTEGER,
+       reference:{
+        model:'Vehicle',
+          key:'id'
+       },
+     
+      }
     },
    
   },
@@ -41,4 +45,4 @@ Product.init(
   }
 );
 
-module.exports = Vehicle;
+module.exports = Product;

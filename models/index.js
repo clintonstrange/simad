@@ -1,16 +1,16 @@
 const User = require("./user");
 const Vehicle= require("./Cars");
-const manufacturer = require("./product");
+const Product = require("./product");
 
 // Products belongsTo Category
-Product.belongsTo(Category, {
-  foreignKey: "category_id",
+Product.belongsTo(Vehicle, {
+  foreignKey: "id",
 });
 
-// Categories have many Products
-Vehicle.hasMany(manufacturer, {
-  foreignKey: "model_ode",
-  onDelete: "SET NULL",
-});
+// // Categories have many Products
+ Vehicle.hasOne(Product, {
+  foreignKey: "id",
+  
+ });
 
-module.exports = { User, Category, Product };
+module.exports = { User, Vehicle, Product };

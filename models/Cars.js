@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection.js");
+//const { Product } = require("./index.js");
 
 class Vehicle extends Model {}
 
@@ -14,9 +15,10 @@ Vehicle.init(
       autoIncrement: true,
     },
    
-    category: {
+    category_name: {
       type: DataTypes.STRING,
-      allowNull:falseA
+      allowNull:false,
+      
     }
   },
   {
