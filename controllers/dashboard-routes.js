@@ -1,14 +1,14 @@
 const router = require("express").Router();
-const { Category, Product } = require("../models");
+const { Vehicle, Product } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, (req, res) => {
-  Category.findAll({
+  Vehicle.findAll({
     attributes: ["id", "category_name"],
     include: [
       {
         model: Product,
-        attributes: ["id", "product_name", "price", "stock", "category_id"],
+        attributes: [ "year", "make", "model", "id"],
       },
     ],
   })
@@ -29,12 +29,12 @@ router.get("/", withAuth, (req, res) => {
 });
 
 router.get("/categories/:id", withAuth, (req, res) => {
-  Category.findByPk(req.params.id, {
+  Vehicle.findByPk(req.params.id, {
     attributes: ["id", "category_name"],
     include: [
       {
         model: Product,
-        attributes: ["id", "product_name", "price", "stock", "category_id"],
+        attributes: ["id", "year", "make", "model"],
       },
     ],
   })
@@ -58,10 +58,10 @@ router.get("/categories/:id", withAuth, (req, res) => {
 
 router.get("/categories/products/:id", withAuth, (req, res) => {
   Product.findByPk(req.params.id, {
-    attributes: ["id", "product_name", "price", "stock"],
+    attributes: ["year", "make", "model","category_id"],
     include: [
       {
-        model: Category,
+        model: Vehicle,
         attributes: ["id", "category_name"],
       },
     ],
@@ -85,7 +85,7 @@ router.get("/categories/products/:id", withAuth, (req, res) => {
 });
 
 router.get("/categories/edit/:id", withAuth, (req, res) => {
-  Category.findByPk(req.params.id, {
+  Vehicle.findByPk(req.params.id, {
     attributes: ["id", "category_name"],
   })
     .then((dbCategoryData) => {
@@ -111,8 +111,8 @@ router.get("/products/edit/:id", withAuth, (req, res) => {
     attributes: ["id", "product_name", "price", "stock"],
     include: [
       {
-        model: Category,
-        attributes: ["id", "category_name"],
+        model: Vehicle,
+        attributes: ["id", "Vehicle_name"],
       },
     ],
   })
@@ -157,7 +157,7 @@ router.get("/add-category", (req, res) => {
 });
 
 router.get("/add-product", (req, res) => {
-  Category.findAll({
+  Vehicle.findAll({
     attributes: ["id", "category_name"],
   })
     .then((dbCategoryData) => {

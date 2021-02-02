@@ -14,8 +14,8 @@ router.get("/", (req, res) => {
       .then((dbCategoryData) => {
       const vehicleList=dbCategoryData.map(db=>db.get({plain:true}));
      // console.log(vehicleList);
-      res.render('homepage');
-     // console.log(res.json(dbCategoryData))
+     // res.render('homepage');
+      res.json(dbCategoryData);
       })
       .catch((err) => {
         console.log(err);
