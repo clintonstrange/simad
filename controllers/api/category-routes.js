@@ -13,8 +13,8 @@ router.get("/", (req, res) => {
     })
       .then((dbCategoryData) => {
       const vehicleList=dbCategoryData.map(db=>db.get({plain:true}));
-      console.log(vehicleList);
-      res.render('homepage',vehicleList);
+     // console.log(vehicleList);
+      res.render('homepage');
      // console.log(res.json(dbCategoryData))
       })
       .catch((err) => {
