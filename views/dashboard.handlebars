@@ -1,0 +1,20 @@
+<section>
+    {{#if roleDirector}}
+    <a href="/dashboard/add-category"> Create a New Category</a>
+    <a href="/dashboard/add-product"> Create a New Product</a>
+    {{/if}}
+    <ol>
+        {{#each categories}}
+        <li>
+            <article>
+                <div>
+                    <a href="dashboard/categories/{{id}}">{{category_name}}</a>
+                </div>
+                <div>
+                    <p>{{products.length}} product(s)</p>
+                </div>
+            </article>
+        </li>
+        {{/each}}
+    </ol>
+</section>

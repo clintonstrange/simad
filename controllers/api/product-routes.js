@@ -61,12 +61,25 @@ router.post("/", (req, res) => {
 // update product
 router.put("/:id", (req, res) => {
   // update product data
-  Product.update(req.body, {
-    where: {
-      id: req.params.id,
+  Product.update(
+    {
+      product_name: req.body.product_name,
+      price: req.body.price,
+      stock: req.body.stock,
     },
-  })
-    .then((product) => res.json(product))
+    {
+      where: {
+        id: req.params.id,
+      },
+    }
+  )
+    .then((dbProductData) => {
+      if (!dbProductData) {
+        res.status(404).json({ message: "No product found with this id." });
+        return;
+      }
+      res.json(dbProductData);
+    })
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
