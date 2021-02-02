@@ -48,7 +48,12 @@ router.get("/:id", (req, res) => {
 
 // create new product
 router.post("/", (req, res) => {
-  Product.create(req.body)
+  Product.create({
+    make:req.body.make,
+    model:req.body.model,
+    year:req.body.year,
+    category_id:req.body.category_id
+  })
     .then((product) => {
       res.status(200).json(product);
     })

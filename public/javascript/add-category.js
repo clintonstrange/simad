@@ -4,10 +4,10 @@ async function newCategoryHandler(event) {
   const category_name = document.querySelector('input[name="category-name"]')
     .value;
 
-  const response = await fetch(`/api/categories`, {
+  const response = await fetch(`/api/vehicle`, {
     method: "POST",
     body: JSON.stringify({
-      category_name,
+      category_name:category_name
     }),
     headers: {
       "Content-Type": "application/json",

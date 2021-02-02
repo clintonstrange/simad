@@ -30,6 +30,29 @@ const productData = [
     model: "SLX",
     year: 1998,
     category_id: 5,
+  },{
+    make: "Acura",
+    model: "NSX",
+    year: 2001,
+    category_id: 6,
+  },
+  {
+    make: "Acura",
+    model: "MDX",
+    year: 2001,
+    category_id: 7,
+  },
+  {
+    make: "Acura",
+    model: "RL",
+    year: 2000,
+    category_id: 8,
+  },
+  {
+    make: "Mazda",
+    model: "SLX",
+    year: 1998,
+    category_id: 9,
   },
 ];
 
