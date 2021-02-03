@@ -1,0 +1,8 @@
+<div>
+    <h2>{{vehicle.vehicle_name}}</h2>
+    {{#if roleDirector }}
+    <a href="/dashboard/vehicles/edit/{{vehicle.id}}">Edit This Vehicle</a>
+    {{/if}}
+
+    {{>products vehicle.Products}}
+</div>

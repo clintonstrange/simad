@@ -1,11 +1,9 @@
 <div>
     {{#each this}}
-    <h3>
-        <a href="products/{{id}}">{{product_name}}</a>
-    </h3>
     <ul>
-        <li>Price: ${{price}}</li>
-        <li>Quantity: {{stock}}</li>
+        <li>
+        <a href="products/{{id}}">{{year}} {{make}} {{model}}</a>
+        </li>
     </ul>
     {{/each}}
 </div>

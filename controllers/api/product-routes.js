@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
     include: [
       {
         model: Vehicle,
-        attributes: ["category_name"],
+        attributes: ["vehicle_name"],
       },
     ],
   })
@@ -29,7 +29,7 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Vehicle,
-        attributes: ["id", "category_name"],
+        attributes: ["id", "vehicle_name"],
       },
     ],
   })
@@ -67,7 +67,7 @@ router.put("/:id", (req, res) => {
        make: req.body.make,
       model: req.body.model,
       year: req.body.year,
-      category_id:req.body.category_id
+      vehicle_id:req.body.vehicle_id
     },
     {
       where: {

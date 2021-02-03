@@ -4,20 +4,20 @@ const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, (req, res) => {
   Vehicle.findAll({
-    attributes: ["id", "category_name"],
+    attributes: ["id", "vehicle_name"],
     include: [
       {
         model: Product,
-        attributes: [ "year", "make", "model", "category_id"],
+        attributes: ["id", "year", "make", "model", "vehicle_id"],
       },
     ],
   })
-    .then((dbCategoryData) => {
-      const categories = dbCategoryData.map((category) =>
-        category.get({ plain: true })
+    .then((dbvehicleData) => {
+      const vehicles = dbvehicleData.map((vehicle) =>
+        vehicle.get({ plain: true })
       );
       res.render("dashboard", {
-        categories,
+        vehicles,
         loggedIn: true,
         roleDirector: req.session.roleDirector,
       });
@@ -28,22 +28,23 @@ router.get("/", withAuth, (req, res) => {
     });
 });
 
-router.get("/vehicle/:id", withAuth, (req, res) => {
+router.get("/vehicles/:id", withAuth, (req, res) => {
   Vehicle.findByPk(req.params.id, {
-    attributes: ["id", "category_name"],
+    attributes: ["id", "vehicle_name"],
     include: [
       {
         model: Product,
-        attributes: ["id", "year", "make", "model"],
+        attributes: ["id", "year", "make", "model", "vehicle_id"],
       },
     ],
   })
-    .then((dbCategoryData) => {
-      if (dbCategoryData) {
-        const category = dbCategoryData.get({ plain: true });
+    .then((dbvehicleData) => {
+      if (dbvehicleData) {
+        const vehicle = dbvehicleData.get({ plain: true });
+        console.log(vehicle);
 
-        res.render("single-category", {
-          category,
+        res.render("single-vehicle", {
+          vehicle,
           loggedIn: true,
           roleDirector: req.session.roleDirector,
         });
@@ -56,19 +57,20 @@ router.get("/vehicle/:id", withAuth, (req, res) => {
     });
 });
 
-router.get("/vehicle/make/:id", withAuth, (req, res) => {
+router.get("/vehicles/products/:id", withAuth, (req, res) => {
   Product.findByPk(req.params.id, {
-    attributes: ["year", "make", "model","category_id"],
+    attributes: ["id", "year", "make", "model"],
     include: [
       {
         model: Vehicle,
-        attributes: ["id", "category_name"],
+        attributes: ["id", "vehicle_name"],
       },
     ],
   })
     .then((dbProductData) => {
       if (dbProductData) {
         const product = dbProductData.get({ plain: true });
+        console.log(product);
 
         res.render("single-product", {
           product,
@@ -84,16 +86,16 @@ router.get("/vehicle/make/:id", withAuth, (req, res) => {
     });
 });
 
-router.get("/vehicle/edit/:id", withAuth, (req, res) => {
+router.get("/vehicles/edit/:id", withAuth, (req, res) => {
   Vehicle.findByPk(req.params.id, {
-    attributes: ["id", "category_name"],
+    attributes: ["id", "vehicle_name"],
   })
-    .then((dbCategoryData) => {
-      if (dbCategoryData) {
-        const category = dbCategoryData.get({ plain: true });
+    .then((dbvehicleData) => {
+      if (dbvehicleData) {
+        const vehicle = dbvehicleData.get({ plain: true });
 
-        res.render("edit-category", {
-          category,
+        res.render("edit-vehicle", {
+          vehicle,
           loggedIn: true,
           roleDirector: req.session.roleDirector,
         });
@@ -106,19 +108,20 @@ router.get("/vehicle/edit/:id", withAuth, (req, res) => {
     });
 });
 
-router.get("/make/edit/:id", withAuth, (req, res) => {
+router.get("/products/edit/:id", withAuth, (req, res) => {
   Product.findByPk(req.params.id, {
-    attributes: ["category_id", "make", "model", "year"],
+    attributes: ["id", "make", "model", "year"],
     include: [
       {
         model: Vehicle,
-        attributes: ["id", "Vehicle_name"],
+        attributes: ["id", "vehicle_name"],
       },
     ],
   })
     .then((dbProductData) => {
       if (dbProductData) {
         const product = dbProductData.get({ plain: true });
+        console.log(product);
 
         res.render("edit-product", {
           product,
@@ -149,8 +152,8 @@ router.get("/add-user", (req, res) => {
   });
 });
 
-router.get("/add-category", (req, res) => {
-  res.render("add-category", {
+router.get("/add-vehicle", (req, res) => {
+  res.render("add-vehicle", {
     loggedIn: req.session.loggedIn,
     roleDirector: req.session.roleDirector,
   });
@@ -158,14 +161,14 @@ router.get("/add-category", (req, res) => {
 
 router.get("/add-product", (req, res) => {
   Vehicle.findAll({
-    attributes: ["id", "category_name"],
+    attributes: ["id", "vehicle_name"],
   })
-    .then((dbCategoryData) => {
-      const categories = dbCategoryData.map((category) =>
-        category.get({ plain: true })
+    .then((dbvehicleData) => {
+      const vehicles = dbvehicleData.map((vehicle) =>
+        vehicle.get({ plain: true })
       );
       res.render("add-product", {
-        categories,
+        vehicles,
         loggedIn: req.session.loggedIn,
         roleDirector: req.session.roleDirector,
       });

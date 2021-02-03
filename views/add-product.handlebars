@@ -1,21 +1,21 @@
 <form class="new-product-form">
     <div>
-        <label for="product-name">New Make:</label>
-        <input type="text" id="product-name" name="product-name" />
+        <label for="product-make">New Make:</label>
+        <input type="text" id="product-make" name="product-make" />
     </div>
     <div>
-        <label for="product-price">New Model:</label>
-        <input type="text" id="product-price" name="product-price" />
+        <label for="product-model">New Model:</label>
+        <input type="text" id="product-model" name="product-model" />
     </div>
     <div>
-        <label for="product-stock">New Year:</label>
-        <input type="text" id="product-stock" name="product-stock" />
+        <label for="product-year">New Year:</label>
+        <input type="text" id="product-year" name="product-year" />
     </div>
     <div>
-        <label for="product-category">New Vehicle Type:</label>
-        <select id="product-category">
-            {{#each categories}}
-            <option name="product-category" value={{id}}>{{category_name}}</option>
+        <label for="product-vehicle">New Vehicle Type:</label>
+        <select id="product-vehicle">
+            {{#each vehicles}}
+            <option name="product-vehicle" value={{id}}>{{vehicle_name}}</option>
             {{/each}}
         </select>
     </div>

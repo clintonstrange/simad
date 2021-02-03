@@ -14,27 +14,24 @@ Product.init(
       autoIncrement: true,
     },
     year: {
-     type: DataTypes.INTEGER,
-     allowNull:false
-    },
-    make:{
-      type: DataTypes.STRING,
-      allowNull:false,
-      
-    },model:{
-      type: DataTypes.STRING,
-      allowNull:false,
-      
-     category_id: {
       type: DataTypes.INTEGER,
-       reference:{
-         model:'Vehicle',
-         key:"id"
-       }
-     
-      }
+      allowNull: false,
     },
-   
+    make: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    model: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    vehicle_id: {
+      type: DataTypes.INTEGER,
+      reference: {
+        model: "Vehicle",
+        key: "id",
+      },
+    },
   },
   {
     sequelize,

@@ -2,18 +2,20 @@
     <h2>Edit Product</h2>
     <form id="edit-product-form">
         <div>
-            <label for="product-name">Edit Product Name:</label>
-            <input name="product-name" type="text" value="{{product.product_name}}" />
+            <label for="product-year">Edit Product Year:</label>
+            <input name="product-year" type="text" value="{{product.year}}" />
         </div>
         <div>
-            <label for="product-price">Edit Product Price:</label>
-            <input name="product-price" type="text" value="{{product.price}}" />
+            <label for="product-make">Edit Product Make:</label>
+            <input name="product-make" type="text" value="{{product.make}}" />
         </div>
         <div>
-            <label for="product-stock">Edit Product Quantity:</label>
-            <input name="product-stock" type="text" value="{{product.stock}}" />
+            <label for="product-model">Edit Product Model:</label>
+            <input name="product-model" type="text" value="{{product.model}}" />
         </div>
+        <button type="submit">Submit Change to Product</button>
     </form>
+    
     <button id="delete-product-btn" type="submit">Delete Product</button>
 
 </div>

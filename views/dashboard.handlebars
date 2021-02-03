@@ -1,19 +1,17 @@
 <section>
     {{#if roleDirector}}
-    <a href="/dashboard/add-category"> Create a New Category</a>
+    <a href="/dashboard/add-vehicle"> Create a New Vehicle</a>
     <a href="/dashboard/add-product"> Create a New Product</a>
     {{/if}}
     <ol>
-        {{#each categories}}
+        {{#each vehicles}}
         <li>
             <article>
                 <div>
-                    <a href="dashboard/vehicle/{{id}}">{{category_name}}</a>
+                    <a href="dashboard/vehicles/{{id}}">{{vehicle_name}}</a>
                 </div>
                 <div>
-                    <p>Make: {{Product.make}}</p>
-                    <p>Model: {{Product.model}}</p>
-                    <p>Year: {{Product.year}}</p>
+                    <p>{{Products.length}} - {{vehicle_name}}(s)</p>
                 </div>
             </article>
         </li>
