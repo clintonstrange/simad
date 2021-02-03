@@ -1,0 +1,9 @@
+<div>
+    <label for="product-category">Edit Product Category:</label>
+    <select id="product-category">
+        {{#each categories as |category|}}
+        {{> categories category}}
+        {{/each}}
+    </select>
+</div>
+<button type="submit">Submit Change to Product</button>

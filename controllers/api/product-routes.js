@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Product, Category } = require("../../models");
+const { Product, Vehicle } = require("../../models");
 
 // get all products
 router.get("/", (req, res) => {
@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
   Product.findAll({
     include: [
       {
-        model: Category,
+        model: Vehicle,
         attributes: ["category_name"],
       },
     ],
@@ -28,7 +28,7 @@ router.get("/:id", (req, res) => {
     },
     include: [
       {
-        model: Category,
+        model: Vehicle,
         attributes: ["id", "category_name"],
       },
     ],
@@ -48,7 +48,8 @@ router.get("/:id", (req, res) => {
 
 // create new product
 router.post("/", (req, res) => {
-  Product.create(req.body)
+  const body= req.body;
+  Product.create(body)
     .then((product) => {
       res.status(200).json(product);
     })
@@ -61,12 +62,26 @@ router.post("/", (req, res) => {
 // update product
 router.put("/:id", (req, res) => {
   // update product data
-  Product.update(req.body, {
-    where: {
-      id: req.params.id,
+  Product.update(
+    {
+       make: req.body.make,
+      model: req.body.model,
+      year: req.body.year,
+      category_id:req.body.category_id
     },
-  })
-    .then((product) => res.json(product))
+    {
+      where: {
+        id: req.params.id,
+      },
+    }
+  )
+    .then((dbProductData) => {
+      if (!dbProductData) {
+        res.status(404).json({ message: "No product found with this id." });
+        return;
+      }
+      res.json(dbProductData);
+    })
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);

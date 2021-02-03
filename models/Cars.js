@@ -1,10 +1,11 @@
 const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection.js");
+//const { Product } = require("./index.js");
 
-class Category extends Model {}
+class Vehicle extends Model {}
 
-Category.init(
+Vehicle.init(
   {
     // define columns
     id: {
@@ -13,18 +14,20 @@ Category.init(
       primaryKey: true,
       autoIncrement: true,
     },
+   
     category_name: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
+      allowNull:false,
+      
+    }
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "category",
+    modelName: "Vehicle",
   }
 );
 
-module.exports = Category;
+module.exports = Vehicle;

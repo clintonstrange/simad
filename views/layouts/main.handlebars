@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Auto</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div>
+                {{#if loggedIn}}
+                <h1>
+                    <a href="/dashboard">Simon Auto</a>
+                </h1>
+                <div>
+                    <div>
+                        <a href="/dashboard">Dashboard</a>
+                        <a href="/dashboard/add-user">Add User</a>
+                    </div>
+                    <div>
+                        <button id="logout">Log Out</button>
+                    </div>
+                </div>
+                {{else}}
+                <h1>
+                    <a href="/">Simon Auto</a>
+                </h1>
+                {{/if}}
+            </div>
+        </nav>
+    </header>
+    <main>
+        {{{ body }}}
+    </main>
+    <footer>
+    </footer>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+</body>
+
+
+</html>

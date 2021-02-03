@@ -1,0 +1,22 @@
+<div>
+    <h2>Edit Product</h2>
+    <form id="edit-product-form">
+        <div>
+            <label for="product-name">Edit Product Name:</label>
+            <input name="product-name" type="text" value="{{product.product_name}}" />
+        </div>
+        <div>
+            <label for="product-price">Edit Product Price:</label>
+            <input name="product-price" type="text" value="{{product.price}}" />
+        </div>
+        <div>
+            <label for="product-stock">Edit Product Quantity:</label>
+            <input name="product-stock" type="text" value="{{product.stock}}" />
+        </div>
+    </form>
+    <button id="delete-product-btn" type="submit">Delete Product</button>
+
+</div>
+
+<script src="/javascript/edit-product.js"></script>
+<script src="/javascript/delete-product.js"></script>

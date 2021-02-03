@@ -1,17 +1,22 @@
 const router = require("express").Router();
-const { Category, Product } = require("../../models");
+const { Vehicle, Product } = require("../../models");
 
 router.get("/", (req, res) => {
-    // find all categories
-    Category.findAll({
+    // find all Cars
+    Vehicle.findAll({
       include: [
         {
           model: Product,
-          attributes: ["id", "product_name", "price", "stock"],
+          attributes: ["id", "make", "year", "model","category_id"],
         },
       ],
     })
-      .then((dbCategoryData) => res.json(dbCategoryData))
+      .then((dbCategoryData) => {
+      const vehicleList=dbCategoryData.map(db=>db.get({plain:true}));
+     // console.log(vehicleList);
+     // res.render('homepage');
+      res.json(dbCategoryData);
+      })
       .catch((err) => {
         console.log(err);
         res.status(500).json(err);
@@ -20,20 +25,20 @@ router.get("/", (req, res) => {
 
   router.get("/:id", (req, res) => {
     // find one category by its `id` value
-    Category.findOne({
+    Vehicle.findOne({
       where: {
         id: req.params.id,
       },
       include: [
         {
           model: Product,
-          attributes: ["id", "product_name", "price", "stock"],
+          attributes: ["id", "year", "model", "make","category_id"],
         },
       ],
     })
       .then((dbCategoryData) => {
         if (!dbCategoryData) {
-          res.status(404).json({ message: "No Category found with this id" });
+          res.status(404).json({ message: "No Vehicle found with this id" });
           return;
         }
         res.json(dbCategoryData);
@@ -46,7 +51,7 @@ router.get("/", (req, res) => {
 
   router.post("/", (req, res) => {
     // create a new category
-    Category.create({
+    Vehicle.create({
       category_name: req.body.category_name,
     })
       .then((dbCategoryData) => res.json(dbCategoryData))
@@ -58,7 +63,7 @@ router.get("/", (req, res) => {
 
   router.put("/:id", (req, res) => {
     // update a category by its `id` value
-    Category.update(
+    Vehicle.update(
       {
         category_name: req.body.category_name,
       },
@@ -81,7 +86,7 @@ router.get("/", (req, res) => {
 
   router.delete("/:id", (req, res) => {
     // delete a category by its `id` value
-    Category.destroy({
+  Vehicle.destroy({
       where: {
         id: req.params.id,
       },
