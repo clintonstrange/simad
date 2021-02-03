@@ -1,9 +1,8 @@
-<div>
+<div class="card">
+    <div class="card-body"></div>
     {{#each this}}
-    <ul>
-        <li>
-        <a href="products/{{id}}">{{year}} {{make}} {{model}}</a>
-        </li>
-    </ul>
+    <p class="card-link"><a href="products/{{id}}">{{year}} {{make}} {{model}}</a></p>
+
     {{/each}}
+</div>
 </div>

@@ -1,22 +1,22 @@
 <div>
     <h2>Edit Product</h2>
     <form id="edit-product-form">
-        <div>
+        <div class="form-group">
             <label for="product-year">Edit Product Year:</label>
-            <input name="product-year" type="text" value="{{product.year}}" />
+            <input class="form-contorl" name="product-year" type="text" value="{{product.year}}" />
         </div>
-        <div>
+        <div class="form-group">
             <label for="product-make">Edit Product Make:</label>
-            <input name="product-make" type="text" value="{{product.make}}" />
+            <input class="form-contorl" name="product-make" type="text" value="{{product.make}}" />
         </div>
-        <div>
+        <div class="form-group">
             <label for="product-model">Edit Product Model:</label>
-            <input name="product-model" type="text" value="{{product.model}}" />
+            <input class="form-contorl" name="product-model" type="text" value="{{product.model}}" />
         </div>
-        <button type="submit">Submit Change to Product</button>
+        <button class="btn btn-warning" type="submit">Submit Change to Product</button>
     </form>
-    
-    <button id="delete-product-btn" type="submit">Delete Product</button>
+
+    <button class="btn btn-danger" id="delete-product-btn" type="submit">Delete Product</button>
 
 </div>
 

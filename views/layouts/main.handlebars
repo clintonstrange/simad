@@ -5,32 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simon Auto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
     <header>
-        <nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            {{#if loggedIn}}
+            <a class="navbar-brand" href="/dashboard">Simon Auto</a>
             <div>
-                {{#if loggedIn}}
-                <h1>
-                    <a href="/dashboard">Simon Auto</a>
-                </h1>
-                <div>
-                    <div>
-                        <a href="/dashboard">Dashboard</a>
-                        <a href="/dashboard/add-user">Add User</a>
-                    </div>
-                    <div>
-                        <button id="logout">Log Out</button>
-                    </div>
-                </div>
-                {{else}}
-                <h1>
-                    <a href="/">Simon Auto</a>
-                </h1>
-                {{/if}}
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/dashboard/add-user">Add User</a>
+                    </li>
+                    <li class="nav-item active"></li>
+                    <button type="button" class="btn btn-danger" id="logout">Log Out</button>
+                    </li>
             </div>
+            {{else}}
+            <div>
+                <a class="navbar-brand" href="/">Simon Auto</a>
+            </div>
+            {{/if}}
+
         </nav>
     </header>
     <main>

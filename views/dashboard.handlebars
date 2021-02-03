@@ -3,18 +3,12 @@
     <a href="/dashboard/add-vehicle"> Create a New Vehicle</a>
     <a href="/dashboard/add-product"> Create a New Product</a>
     {{/if}}
-    <ol>
-        {{#each vehicles}}
-        <li>
-            <article>
-                <div>
-                    <a href="dashboard/vehicles/{{id}}">{{vehicle_name}}</a>
-                </div>
-                <div>
-                    <p>{{Products.length}} - {{vehicle_name}}(s)</p>
-                </div>
-            </article>
-        </li>
-        {{/each}}
-    </ol>
+    {{#each vehicles}}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title card-link"><a href="dashboard/vehicles/{{id}}">{{vehicle_name}}</a></h5>
+            <p class="card-text">{{Products.length}} - {{vehicle_name}}(s)</p>
+        </div>
+    </div>
+    {{/each}}
 </section>

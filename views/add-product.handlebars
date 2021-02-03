@@ -1,17 +1,17 @@
 <form class="new-product-form">
-    <div>
+    <div class="form-group">
         <label for="product-make">New Make:</label>
-        <input type="text" id="product-make" name="product-make" />
+        <input type="text" class="form-control" id="product-make" name="product-make" />
     </div>
-    <div>
+    <div "form-group">
         <label for="product-model">New Model:</label>
-        <input type="text" id="product-model" name="product-model" />
+        <input type="text" class="form-control" id="product-model" name="product-model" />
     </div>
-    <div>
+    <div "form-group">
         <label for="product-year">New Year:</label>
-        <input type="text" id="product-year" name="product-year" />
+        <input type="text" class="form-control" id="product-year" name="product-year" />
     </div>
-    <div>
+    <div "form-group">
         <label for="product-vehicle">New Vehicle Type:</label>
         <select id="product-vehicle">
             {{#each vehicles}}
@@ -19,7 +19,7 @@
             {{/each}}
         </select>
     </div>
-    <button type="submit">Create New Product</button>
+    <button type="submit" class="btn btn-success">Create New Product</button>
 </form>
 
 <script src="/javascript/add-product.js"></script>

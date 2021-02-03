@@ -1,10 +1,14 @@
-<div>
+<section>
     {{#if roleDirector }}
     <a href="/dashboard/products/edit/{{{product.id}}}">Edit This Product</a>
     {{/if}}
-    <ul>
-        <li>Year: {{product.year}}</li>
-        <li>Make: {{product.make}}</li>
-        <li>Model: {{product.model}}</li>
-    </ul>
-</div>
+    <div class="card">
+        <div class="card-header">
+            <ul class="list-group list-group-flush">
+                <li class="list-grou-item">Year: {{product.year}}</li>
+                <li class="list-grou-item">Make: {{product.make}}</li>
+                <li class="list-grou-item">Model: {{product.model}}</li>
+            </ul>
+        </div>
+    </div>
+</section>
