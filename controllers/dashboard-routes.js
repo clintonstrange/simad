@@ -135,12 +135,12 @@ router.get("/make/edit/:id", withAuth, (req, res) => {
 });
 
 // get dashboard view
-router.get("/", (req, res) => {
-  res.render("dashboard", {
-    loggedIn: req.session.loggedIn,
-    roleDirector: req.session.roleDirector,
-  });
-});
+// router.get("/", (req, res) => {
+//   res.render("dashboard", {
+//     loggedIn: req.session.loggedIn,
+//     roleDirector: req.session.roleDirector,
+//   });
+// });
 
 router.get("/add-user", (req, res) => {
   res.render("add-user", {
