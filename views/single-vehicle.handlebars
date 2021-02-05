@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="d-flex flex-row justify-content-center">
+
+        <h2 class="text-light">Vehicle Type: {{vehicle.vehicle_name}}</h2>
+    </div>
+</div>
+{{#if roleDirector }}
+<div class="container">
+    <div class="d-flex flex-row justify-content-center">
+        <div class="card bg-light">
+            <div class="card-body">
+                <a href="/dashboard/vehicles/edit/{{vehicle.id}}">Edit This Vehicle Type</a>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+<div class="container">
+    <div class="d-flex flex-wrap justify-content-around p-1 m-1">
+        {{>products vehicle.Products}}
+    </div>
+</div>

@@ -1,0 +1,22 @@
+.victors {
+  background-image: url("/images/open-road.jpg");
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.05) 0%,
+      rgba(0, 0, 0, 0.05) 100%
+    ),
+    url("/images/open-road.jpg");
+  background-size: cover;
+  background-position: center;
+  max-width: 100%;
+}
+
+#adduser-form,
+.new-vehicle-form,
+.new-product-form,
+#edit-vehicle-form,
+#edit-product-form {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 20px;
+  border-radius: 10%;
+}
