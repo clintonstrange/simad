@@ -1,0 +1,9 @@
+<div>
+    <label for="product-vehicle">Edit Product Vehicle:</label>
+    <select id="product-vehicle">
+        {{#each vehicles as |vehicle|}}
+        {{> vehicles vehicle}}
+        {{/each}}
+    </select>
+</div>
+<button type="submit">Submit Change to Product</button>

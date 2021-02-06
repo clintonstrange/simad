@@ -4,40 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simon Auto</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Victor's</title>
+    <link rel="icon" type="image/png" href="../../public/images/Victor's Icon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
-<body>
+<body class="victors">
     <header>
-        <nav>
-            <div>
-                {{#if loggedIn}}
-                <h1>
-                    <a href="/dashboard">Simon Auto</a>
-                </h1>
-                <div>
-                    <div>
-                        <a href="/dashboard">Dashboard</a>
-                        <a href="/dashboard/add-user">Add User</a>
-                    </div>
-                    <div>
-                        <button id="logout">Log Out</button>
-                    </div>
+        <nav class="navbar navbar-expand-lg bg-light">
+            {{#if loggedIn}}
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/dashboard">
+                    <img src="logo.png" alt="" width="100vw" height="60vh" class="d-inline-block align-top">
+                </a>
+                <div class="nav-item">
+                    <a class="nav-link text-dark" href="/dashboard">Home</a>
                 </div>
-                {{else}}
-                <h1>
-                    <a href="/">Simon Auto</a>
-                </h1>
-                {{/if}}
+                <div class="nav-item">
+                    <a class="nav-link text-dark" href="/dashboard/add-user">Add User</a>
+                </div>
+                <div class="nav-item">
+                    <button class="text-danger" id="logout">Log Out</button>
+                </div>
             </div>
+            {{else}}
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="logo.png" alt="" width="100vw" height="60vh" class="d-inline-block align-top">
+                </a>
+            </div>
+            {{/if}}
         </nav>
     </header>
     <main>
         {{{ body }}}
     </main>
-    <footer>
+    <footer class="container">
+        <div class="d-flex justify-content-center">
+            <p class="text-light p-2">© 2021 Victor's Car Dealership</p>
+        </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+        crossorigin="anonymous"></script>
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
     {{/if}}

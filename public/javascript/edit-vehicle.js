@@ -1,16 +1,16 @@
-async function editCategoryHandler(event) {
+async function editVehicleHandler(event) {
   event.preventDefault();
 
-  const category_name = document
-    .querySelector('input[name="category-name"]')
+  const vehicle_name = document
+    .querySelector('input[name="vehicle-name"]')
     .value.trim();
   const id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
-  const response = await fetch(`/api/categories/${id}`, {
+  const response = await fetch(`/api/vehicles/${id}`, {
     method: "PUT",
     body: JSON.stringify({
-      category_name,
+      vehicle_name,
     }),
     headers: {
       "Content-Type": "application/json",
@@ -25,5 +25,5 @@ async function editCategoryHandler(event) {
 }
 
 document
-  .querySelector("#edit-category-form")
-  .addEventListener("submit", editCategoryHandler);
+  .querySelector("#edit-vehicle-form")
+  .addEventListener("submit", editVehicleHandler);

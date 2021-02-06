@@ -1,10 +1,10 @@
-async function deleteCategoryHandler(event) {
+async function deleteVehiclesHandler(event) {
   event.preventDefault();
 
   const id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
-  const response = await fetch(`/api/categories/${id}`, {
+  const response = await fetch(`/api/vehicles/${id}`, {
     method: "DELETE",
   });
 
@@ -16,5 +16,5 @@ async function deleteCategoryHandler(event) {
 }
 
 document
-  .querySelector("#delete-category-btn")
-  .addEventListener("click", deleteCategoryHandler);
+  .querySelector("#delete-vehicle-btn")
+  .addEventListener("click", deleteVehiclesHandler);

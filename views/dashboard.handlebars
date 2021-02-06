@@ -1,20 +1,28 @@
 <section>
     {{#if roleDirector}}
-    <a href="/dashboard/add-category"> Create a New Category</a>
-    <a href="/dashboard/add-product"> Create a New Product</a>
+    <div class="container">
+        <div class="d-flex flex-row justify-content-around p-2 m-2">
+            <div class="card bg-light">
+                <div class="card-body text-white"><a href="/dashboard/add-vehicle">Create a New Vehicle</a>
+                </div>
+            </div>
+            <div class="card bg-light">
+                <div class="card-body text-white"><a href="/dashboard/add-product">Create a New Product</a>
+                </div>
+            </div>
+        </div>
+    </div>
     {{/if}}
-    <ol>
-        {{#each categories}}
-        <li>
-            <article>
-                <div>
-                    <a href="dashboard/categories/{{id}}">{{category_name}}</a>
+    <div class="container">
+        <div class="d-flex flex-row flex-wrap justify-content-around p-1 m-1">
+            {{#each vehicles}}
+            <div class="card m-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title card-link"><a href="dashboard/vehicles/{{id}}">{{vehicle_name}}</a></h5>
+                    <p class="card-text">{{Products.length}} - {{vehicle_name}}(s)</p>
                 </div>
-                <div>
-                    <p>{{products.length}} product(s)</p>
-                </div>
-            </article>
-        </li>
-        {{/each}}
-    </ol>
+            </div>
+            {{/each}}
+        </div>
+    </div>
 </section>

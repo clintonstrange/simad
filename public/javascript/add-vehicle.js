@@ -1,13 +1,13 @@
-async function newCategoryHandler(event) {
+async function newVehicleHandler(event) {
   event.preventDefault();
 
-  const category_name = document.querySelector('input[name="category-name"]')
+  const vehicle_name = document.querySelector('input[name="vehicle-name"]')
     .value;
 
-  const response = await fetch(`/api/categories`, {
+  const response = await fetch(`/api/vehicles`, {
     method: "POST",
     body: JSON.stringify({
-      category_name,
+      vehicle_name: vehicle_name,
     }),
     headers: {
       "Content-Type": "application/json",
@@ -22,5 +22,5 @@ async function newCategoryHandler(event) {
 }
 
 document
-  .querySelector(".new-category-form")
-  .addEventListener("submit", newCategoryHandler);
+  .querySelector(".new-vehicle-form")
+  .addEventListener("submit", newVehicleHandler);

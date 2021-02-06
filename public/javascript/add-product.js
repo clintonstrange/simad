@@ -1,20 +1,20 @@
 async function newProductHandler(event) {
   event.preventDefault();
 
-  const product_name = document
-    .querySelector('input[name="product-name"]')
+  const make = document
+    .querySelector('input[name="product-make"]')
     .value.trim();
-  const price = document.querySelector('input[name="product-price"]').value;
-  const stock = document.querySelector('input[name="product-stock"]').value;
-  const category_id = document.getElementById("product-category").value;
+  const model = document.querySelector('input[name="product-model"]').value;
+  const year = document.querySelector('input[name="product-year"]').value;
+  const vehicle_id = document.getElementById("product-vehicle").value;
 
   const response = await fetch(`/api/products`, {
     method: "POST",
     body: JSON.stringify({
-      product_name,
-      price,
-      stock,
-      category_id,
+      make: make,
+      model: model,
+      year: year,
+      vehicle_id: vehicle_id,
     }),
     headers: {
       "Content-Type": "application/json",

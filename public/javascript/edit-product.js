@@ -1,14 +1,14 @@
 async function editProductHandler(event) {
   event.preventDefault();
 
-  const product_name = document
-    .querySelector('input[name="product-name"]')
+  const year = document
+    .querySelector('input[name="product-year"]')
     .value.trim();
-  const price = document
-    .querySelector('input[name="product-price"]')
+  const make = document
+    .querySelector('input[name="product-make"]')
     .value.trim();
-  const stock = document
-    .querySelector('input[name="product-stock"]')
+  const model = document
+    .querySelector('input[name="product-model"]')
     .value.trim();
   const id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
@@ -16,9 +16,9 @@ async function editProductHandler(event) {
   const response = await fetch(`/api/products/${id}`, {
     method: "PUT",
     body: JSON.stringify({
-      product_name,
-      price,
-      stock,
+      year,
+      make,
+      model,
     }),
     headers: {
       "Content-Type": "application/json",

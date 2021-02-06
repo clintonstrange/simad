@@ -15,7 +15,7 @@ Vehicle.init(
       autoIncrement: true,
     },
    
-    category_name: {
+    vehicle_name: {
       type: DataTypes.STRING,
       allowNull:false,
       

@@ -7,4 +7,8 @@ router.get("/", (req, res) => {
   });
 });
 
+// router.get("/add-user", (req, res) => {
+//   res.render("add-user", {});
+// });
+
 module.exports = router;

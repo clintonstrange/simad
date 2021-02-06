@@ -10,7 +10,7 @@ const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const helpers = require('./utils/helpers');
 // handlebars
-const exphbs = require('express-handlebars');
+//const exphbs = require('express-handlebars');
 const hbs = exphbs.create({helpers});
 
 const sess = {
@@ -33,6 +33,7 @@ app.set("view engine", "handlebars");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "views/images")))
 
 // set Handlebars as the default template engine
 app.engine('handlebars', hbs.engine);

@@ -1,10 +1,27 @@
-<div>
-    <h2>{{product.product_name}}</h2>
+<section>
     {{#if roleDirector }}
-    <a href="/dashboard/products/edit/{{product.id}}">Edit This Product</a>
+    <div class="container">
+        <div class="d-flex flex-row justify-content-center mt-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <a href="/dashboard/products/edit/{{{product.id}}}">Edit This Product</a>
+                </div>
+            </div>
+        </div>
+    </div>
     {{/if}}
-    <ul>
-        <li>Price: ${{product.price}}</li>
-        <li>Quantity: {{product.stock}}</li>
-    </ul>
-</div>
+    <div class="container">
+        <div class="d-flex flex-row justify-content-around p-1 m-1">
+            <div class="card m-4">
+                <div class="card-header">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Year: {{product.year}}</li>
+                        <li class="list-group-item">Make: {{product.make}}</li>
+                        <li class="list-group-item">Model: {{product.model}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
