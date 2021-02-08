@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Victor's</title>
     <link rel="icon" type="image/png" href="../../public/images/Victor's Icon.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css">
@@ -18,10 +20,10 @@
             {{#if loggedIn}}
             <div class="container-fluid">
                 <a class="navbar-brand" href="/dashboard">
-                    <img src="logo.png" alt="" width="100vw" height="60vh" class="d-inline-block align-top">
+                    <h1 class="text-dark"><i class="fas fa-car"></i> Victor's</h1>
                 </a>
                 <div class="nav-item">
-                    <a class="nav-link text-dark" href="/dashboard">Home</a>
+                    <a class="nav-link text-dark" href="/dashboard"></i>Home</a>
                 </div>
                 <div class="nav-item">
                     <a class="nav-link text-dark" href="/dashboard/add-user">Add User</a>
@@ -33,7 +35,7 @@
             {{else}}
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
-                    <img src="logo.png" alt="" width="100vw" height="60vh" class="d-inline-block align-top">
+                    <h1 class="text-dark"><i class="fas fa-car"></i> Victor's</h1>
                 </a>
             </div>
             {{/if}}
@@ -42,7 +44,7 @@
     <main>
         {{{ body }}}
     </main>
-    <footer class="container">
+    <footer class=" container">
         <div class="d-flex justify-content-center">
             <p class="text-light p-2">© 2021 Victor's Car Dealership</p>
         </div>
